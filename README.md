@@ -1,4 +1,5 @@
 # JavaScript-Objects
 Learning JS Objects
 
-This project is about an online library. I am practising my javascript skills, especially on the topic of JavaScript Objects, maimly Object Constructors and Prototypes.
+This project involves an online library. I am practising my JavaScript skills, especially on JavaScript Objects, mainly Object Constructors and Prototypes.
+I am also trying out Tailwind CSS for the first time 

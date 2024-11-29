@@ -4,7 +4,7 @@
   "description": "Learning JS Objects",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./public/style.css--watch"
+    "build": "tailwindcss -i ./src/input.css -o ./public/style.css"
   },
   "repository": {
     "type": "git",

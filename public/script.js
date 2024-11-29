@@ -14,7 +14,15 @@ function Books(tittle,author,pages,isRead){    // this () creates  new object wi
     this.author = author;
     this.pages = pages;
     this.isRead = isRead === "true";
-    this.displayInfo = function(){
+    allBooks.push(this);
+}
+// Add a method to the Book prototype to handle toggling the read status
+Books.prototype.toggleReadStatus = function (){
+      this.isRead = !this.isRead;
+    }; 
+
+// Add a method to display the book's information    
+Books.prototype.displayInfo  = function(){ 
         let readStatus;
         if (this.isRead) {
           readStatus = "already read";
@@ -23,14 +31,6 @@ function Books(tittle,author,pages,isRead){    // this () creates  new object wi
       }
       return `${this.tittle} by ${this.author}, ${this.pages} , ${readStatus}`;
     };
-    this.toggleReadStatus = function(){
-      this.isRead = !this.isRead;
-    }
-
-    allBooks.push(this);
-
-}
-
 
 function displayBooks() {
     const container = document.getElementById("book-container"); 
@@ -50,13 +50,13 @@ function displayBooks() {
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
         removeButton.classList.add(
-          'bg-green-200',
+          'bg-teal-600',
            'text-white',
            'rounded',
            'px-3',
            'py-1',
            'mt-2',
-           'hover:bg-green-400',
+           'hover:bg-teal-900',
            'focus:outline-none',
            'focus:ring-green-300');
         removeButton.setAttribute('data-index', index); // Store the book's index
@@ -74,7 +74,15 @@ function displayBooks() {
         }
         readButton.className = 'toggle-btn';
         readButton.classList.add(
-          'bg-green-300'
+          'bg-teal-600',
+           'text-white',
+           'rounded',
+           'px-3',
+           'py-1',
+           'mt-2',
+           'hover:bg-teal-900',
+           'focus:outline-none',
+           'focus:ring-green-300'
         );
         readButton.setAttribute('data-index', index);
 

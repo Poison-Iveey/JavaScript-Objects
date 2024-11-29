@@ -50,13 +50,13 @@ function displayBooks() {
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
         removeButton.classList.add(
-          'bg-green-200',
+          'bg-teal-600',
            'text-white',
            'rounded',
            'px-3',
            'py-1',
            'mt-2',
-           'hover:bg-green-400',
+           'hover:bg-teal-900',
            'focus:outline-none',
            'focus:ring-green-300');
         removeButton.setAttribute('data-index', index); // Store the book's index
@@ -74,7 +74,15 @@ function displayBooks() {
         }
         readButton.className = 'toggle-btn';
         readButton.classList.add(
-          'bg-green-300'
+          'bg-teal-600',
+           'text-white',
+           'rounded',
+           'px-3',
+           'py-1',
+           'mt-2',
+           'hover:bg-teal-900',
+           'focus:outline-none',
+           'focus:ring-green-300'
         );
         readButton.setAttribute('data-index', index);
 

@@ -2,11 +2,17 @@
 module.exports = {
   content: [
     "./public/index.html",   
-    "./public/**/*.js", 
+    "./public/script.js", 
   ],
   theme: {
-    extend: {},
-  },
+    extend: {
+        fontFamily: {
+          asapCondensed: ['"Asap Condensed"', 'sans-serif'], 
+          ubuntuCondensed: ['"Ubuntu Condensed"', 'sans-serif'], 
+        },
+      },
+    },
+
   plugins: [],
 }
 

@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let allBooks = [];  //  this array holds all the book objects
 
-function Books(tittle,author,pages,isRead){    // this () creates  new object with the all the books properties then pushes that object into allBooks() array
+class Books{
+    constructor (tittle,author,pages,isRead){    // this () creates  new object with the all the books properties then pushes that object into allBooks() array
     this.tittle = tittle;
     this.author = author;
     this.pages = pages;
@@ -17,21 +18,25 @@ function Books(tittle,author,pages,isRead){    // this () creates  new object wi
     allBooks.push(this);
 }
 // Add a method to the Book prototype to handle toggling the read status
-Books.prototype.toggleReadStatus = function (){
-      this.isRead = !this.isRead;
-    }; 
+toggleReadStatus(){
+    this.isRead =!this.isRead
+}
 
-// Add a method to display the book's information    
-Books.prototype.displayInfo  = function(){ 
-        let readStatus;
-        if (this.isRead) {
-          readStatus = "already read";
-      } else {
-          readStatus = "not read yet";
-      }
-      return `${this.tittle} by ${this.author}, ${this.pages} , ${readStatus}`;
-    };
 
+// Add a method to display the book's information  
+displayInfo(){let readStatus;
+    if (this.isRead) {
+      readStatus = "already read";
+  } else {
+      readStatus = "not read yet";
+  }
+  return `${this.tittle} by ${this.author}, ${this.pages} , ${readStatus}`;
+};
+
+}
+
+
+        
 function displayBooks() {
     const container = document.getElementById("book-container"); 
      container.innerHTML='';
@@ -175,7 +180,6 @@ let book27 = new Books("Powerful" ,"Lauren Roberts" , "272 pages", "false");
 let book28 = new Books("Fearless" ,"Lauren Roberts" , "608 pages", "false");
 let book29 = new Books("Reckless" ,"Lauren Roberts" , "396 pages", "false");
 let book30 = new Books("Fourth Wing" ,"Rebecca Yarros" , "517 pages", "false");
-
  
 
 displayBooks();

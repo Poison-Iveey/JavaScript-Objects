@@ -1,18 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./public/index.html",   
-    "./public/script.js", 
+  content:[
+    "./public/index.html",
+    "./public/script.js",
   ],
   theme: {
     extend: {
-        fontFamily: {
-          asapCondensed: ['"Asap Condensed"', 'sans-serif'], 
-          ubuntuCondensed: ['"Ubuntu Condensed"', 'sans-serif'], 
-        },
+      fontFamily: {
+        charm: ['"Charm"', 'cursive'],
+        oregano: ['"Oregano"', 'cursive'],
       },
     },
-
+  },
   plugins: [],
-}
-
+};

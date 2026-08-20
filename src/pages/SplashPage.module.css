@@ -1,0 +1,49 @@
+.splash {
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background: #1c1220;
+  color: var(--color-cream);
+  text-align: center;
+  padding: 0 var(--space-6);
+  overflow: hidden;
+}
+
+.gradientBar {
+  position: absolute;
+  z-index: 1;
+  bottom: calc(var(--space-7) + var(--safe-bottom));
+  width: min(240px, 60%);
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-bar);
+}
+
+.mark {
+  position: relative;
+  z-index: 1;
+  color: var(--color-peach);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: var(--text-3xl);
+  color: var(--color-cream);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.tagline {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--color-peach);
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+}

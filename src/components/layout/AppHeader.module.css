@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: calc(var(--space-5) + var(--safe-top)) var(--space-5) var(--space-4);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-2xl);
+}
+
+.subtitle {
+  margin: var(--space-1) 0 0;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.mobileOnly {
+  display: flex;
+}
+
+.logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 860px) {
+  .mobileOnly {
+    display: none;
+  }
+}

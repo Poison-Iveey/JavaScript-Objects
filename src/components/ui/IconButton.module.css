@@ -1,0 +1,37 @@
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--text-primary);
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.iconButton:active {
+  transform: scale(0.92);
+}
+
+.iconButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.iconButton:disabled:active {
+  transform: none;
+}
+
+.default:hover {
+  background: var(--border-subtle);
+}
+
+.accent {
+  background: var(--accent-fill);
+  color: var(--text-on-accent);
+}
+
+.danger:hover {
+  background: rgba(179, 65, 63, 0.12);
+  color: var(--danger);
+}

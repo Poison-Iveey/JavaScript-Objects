@@ -1,0 +1,34 @@
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hillBack {
+  animation: hill-drift 26s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes hill-drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hillBack {
+    animation: none;
+  }
+}

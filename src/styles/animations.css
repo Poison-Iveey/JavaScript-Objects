@@ -1,0 +1,19 @@
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 80, 115, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 18px rgba(147, 80, 115, 0);
+  }
+}

@@ -1,0 +1,41 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.leaf {
+  position: absolute;
+  top: -10%;
+  opacity: var(--leaf-opacity, 0.85);
+  animation-name: leaf-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.leaf svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes leaf-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(var(--drift), 55vh) rotate(170deg);
+  }
+  100% {
+    transform: translate(calc(var(--drift) * -1), 118vh) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaf {
+    animation: none;
+    opacity: 0.35 !important;
+  }
+}

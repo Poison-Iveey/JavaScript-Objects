@@ -1,0 +1,57 @@
+.coverBanner {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 130px;
+  margin: 0 var(--space-5);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-deep-violet), var(--color-mauve) 60%, var(--color-peach));
+  box-shadow: var(--shadow-md);
+}
+
+.profileCardWrap {
+  position: relative;
+  z-index: 1;
+  margin: -60px var(--space-5) 0;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  max-width: 420px;
+  margin: 0 var(--space-5);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-primary);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: var(--text-base);
+}
+
+.comingSoon {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.logoutRow {
+  max-width: 420px;
+  margin: var(--space-2) var(--space-5) 0;
+}

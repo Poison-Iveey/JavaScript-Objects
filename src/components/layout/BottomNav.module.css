@@ -1,0 +1,35 @@
+.nav {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  padding-bottom: var(--safe-bottom);
+  z-index: 10;
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3) 0;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  transition: color 0.15s ease;
+}
+
+.active {
+  color: var(--accent-strong);
+}
+
+.label {
+  font-weight: 600;
+}
+
+@media (min-width: 860px) {
+  .nav {
+    display: none;
+  }
+}

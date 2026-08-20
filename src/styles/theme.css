@@ -1,0 +1,109 @@
+:root {
+  --color-deep-violet: #502d55;
+  --color-mauve: #935073;
+  --color-peach: #f6dbc0;
+  --color-cream: #f8f4e9;
+
+  --gradient-bar: linear-gradient(
+    90deg,
+    var(--color-deep-violet),
+    var(--color-mauve),
+    var(--color-peach),
+    var(--color-cream)
+  );
+
+  --bg-app: var(--color-cream);
+  --bg-surface: #ffffff;
+  --bg-surface-raised: var(--color-peach);
+  --bg-overlay: rgba(80, 45, 85, 0.45);
+
+  --text-primary: var(--color-deep-violet);
+  --text-secondary: #7a5b7e;
+  --text-on-accent: var(--color-cream);
+  --text-muted: #a98aac;
+
+  --accent: var(--color-mauve);
+  --accent-strong: var(--color-deep-violet);
+  --accent-fill: var(--color-deep-violet);
+  --border-subtle: rgba(80, 45, 85, 0.15);
+  --border-strong: rgba(80, 45, 85, 0.35);
+
+  --danger: #b3413f;
+  --success: #4c7a5e;
+
+  --shadow-sm: 0 1px 3px rgba(80, 45, 85, 0.12);
+  --shadow-md: 0 8px 24px rgba(80, 45, 85, 0.18);
+  --shadow-lg: 0 16px 40px rgba(80, 45, 85, 0.28);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Decorative autumn-park scene (Splash/Auth backgrounds) — scoped tokens,
+     not used by functional UI, so they can lean warmer than the core palette. */
+  --scene-sky-top: var(--color-peach);
+  --scene-sky-bottom: var(--color-cream);
+  --scene-hill-back: rgba(147, 80, 115, 0.22);
+  --scene-hill-mid: rgba(80, 45, 85, 0.32);
+  --scene-hill-front: rgba(80, 45, 85, 0.55);
+  --scene-tree: rgba(80, 45, 85, 0.4);
+  --scene-figure: rgba(80, 45, 85, 0.65);
+  --scene-leaf-1: var(--color-peach);
+  --scene-leaf-2: var(--color-mauve);
+  --scene-leaf-3: #d99a5f;
+
+  --sidebar-tint: linear-gradient(165deg, rgba(246, 219, 192, 0.4), rgba(246, 219, 192, 0) 55%);
+  --ambient-sun: radial-gradient(circle, rgba(217, 154, 95, 0.35), rgba(217, 154, 95, 0) 70%);
+  --ambient-cloud: rgba(255, 255, 255, 0.22);
+  --ambient-line: rgba(80, 45, 85, 0.12);
+}
+
+[data-theme="dark"] {
+  --bg-app: #1c1220;
+  --bg-surface: #2a1c2c;
+  --bg-surface-raised: #3a2740;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+
+  --text-primary: var(--color-cream);
+  --text-secondary: var(--color-peach);
+  --text-on-accent: var(--color-cream);
+  --text-muted: #8d7a91;
+
+  --accent: var(--color-mauve);
+  --accent-strong: var(--color-peach);
+  --accent-fill: var(--color-mauve);
+  --border-subtle: rgba(246, 219, 192, 0.12);
+  --border-strong: rgba(246, 219, 192, 0.28);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+
+  --scene-sky-top: #3a2740;
+  --scene-sky-bottom: #1c1220;
+  --scene-hill-back: rgba(147, 80, 115, 0.3);
+  --scene-hill-mid: rgba(58, 39, 64, 0.75);
+  --scene-hill-front: rgba(20, 13, 22, 0.92);
+  --scene-tree: rgba(147, 80, 115, 0.45);
+  --scene-figure: rgba(246, 219, 192, 0.6);
+  --scene-leaf-1: var(--color-peach);
+  --scene-leaf-2: var(--color-mauve);
+  --scene-leaf-3: #d99a5f;
+
+  --sidebar-tint: linear-gradient(165deg, rgba(147, 80, 115, 0.35), rgba(147, 80, 115, 0) 55%);
+  --ambient-sun: radial-gradient(circle, rgba(246, 219, 192, 0.18), rgba(246, 219, 192, 0) 70%);
+  --ambient-cloud: rgba(246, 219, 192, 0.1);
+  --ambient-line: rgba(246, 219, 192, 0.1);
+}

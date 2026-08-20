@@ -1,0 +1,23 @@
+.control {
+  display: flex;
+  background: var(--bg-surface-raised);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+  gap: 2px;
+}
+
+.option {
+  flex: 1;
+  padding: var(--space-2) var(--space-1);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.active {
+  background: var(--accent-fill);
+  color: var(--text-on-accent);
+}

@@ -55,11 +55,6 @@ export function ShellProvider({ children }) {
   const takeImage = useCallback(
     async (file, target) => {
       try {
-        if (target === "art") {
-          const { dataUrl } = await shrinkImage(file, 600);
-          journal.setSideArt(dataUrl);
-          return;
-        }
         const { dataUrl, file: small } = await shrinkImage(file);
         if (target === "new") openAdd(dataUrl, small);
         else if (target === "add") setDraft((d) => ({ ...d, img: dataUrl, file: small }));
@@ -69,7 +64,7 @@ export function ShellProvider({ children }) {
         notify(err.message || "Couldn't use that image.");
       }
     },
-    [detailId, journal, library, notify, openAdd, updateProfile]
+    [detailId, library, notify, openAdd, updateProfile]
   );
 
   const pickImage = useCallback((target) => {
@@ -107,8 +102,6 @@ export function ShellProvider({ children }) {
       e.preventDefault();
       dragDepth.current = 0;
       setDragging(false);
-      // A drop on the sidebar artwork is handled there.
-      if (e.target.closest?.("[data-drop-art]")) return;
       const f = Array.from(e.dataTransfer.files).find((x) => x.type.startsWith("image/"));
       if (f) takeImage(f, dropTargetRef.current);
     };

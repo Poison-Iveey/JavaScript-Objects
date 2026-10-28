@@ -1,0 +1,147 @@
+/* Takes only the space left under the menu (never pushing or overlapping
+   it), and disappears when that space is too short to show the scene. */
+.frame {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  max-height: 320px;
+  margin: 0 -8px -16px;
+  overflow: hidden;
+  container-type: size;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@container (max-height: 170px) {
+  .svg {
+    display: none;
+  }
+}
+
+.sparkle {
+  fill: #fbe2a4;
+}
+
+.trail {
+  stroke: #e9c27c;
+  stroke-opacity: 0.45;
+}
+
+:global([data-theme="light"]) .sparkle {
+  fill: #d6a33f;
+}
+
+:global([data-theme="light"]) .trail {
+  stroke: #b8873a;
+  stroke-opacity: 0.55;
+}
+
+.dust {
+  fill: var(--star);
+  opacity: 0.45;
+  animation: dust 5s ease-in-out infinite;
+}
+
+.star {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 4.5s ease-in-out infinite;
+}
+
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 2.4s ease-in-out infinite;
+}
+
+.glow {
+  animation: breathe 2.4s ease-in-out infinite;
+}
+
+.ember {
+  fill: #ffcf7a;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rise 5.2s ease-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes dust {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1, 1) skewX(0deg);
+  }
+  25% {
+    transform: scale(0.95, 1.05) skewX(1.5deg);
+  }
+  55% {
+    transform: scale(1.04, 0.96) skewX(-1deg);
+  }
+  80% {
+    transform: scale(0.98, 1.03) skewX(0.5deg);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.78;
+  }
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+  12% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), -90px) scale(0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dust,
+  .star,
+  .flame,
+  .glow,
+  .ember {
+    animation: none;
+  }
+
+  .ember {
+    display: none;
+  }
+}

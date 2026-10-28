@@ -48,3 +48,38 @@ input[type="range"] {
   background: var(--nav-active);
   color: var(--ink);
 }
+
+/* Scrollbars: a slim rounded pill on an invisible track, in theme colours.
+   Chromium/Safari use the ::-webkit-scrollbar styling below; setting
+   scrollbar-width/-color would override it there, so those standard
+   properties are applied only where the pseudo-elements aren't supported
+   (Firefox). */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  border: 2.5px solid transparent;
+  border-radius: 999px;
+  background: var(--scroll-thumb);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+  background-clip: padding-box;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb) transparent;
+  }
+}

@@ -10,12 +10,12 @@
   display: flex;
   flex-direction: column;
   background: var(--side-bg);
-  border: var(--side-bd);
+  border: 0;
+  border-right: var(--side-bd);
   border-radius: var(--side-r);
   padding: 14px 8px 16px;
   overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-width: thin;
 }
 
 .toggle {
@@ -98,49 +98,14 @@
 
 .bottom {
   margin-top: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  justify-content: flex-end;
   padding: 6px 0 0;
   width: 184px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.art {
-  position: relative;
-  height: 230px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  padding: 0;
-  background: var(--drop);
-  cursor: pointer;
-}
-
-.art img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.artHint {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 6px;
-  background: rgba(15, 11, 29, 0.7);
-  color: #f1e6d4;
-  font: 400 10.5px var(--font-body);
-  opacity: 0;
-  transition: opacity 0.15s ease;
-}
-
-.art:hover .artHint,
-.artOver .artHint {
-  opacity: 1;
-}
-
-.artOver {
-  outline: 2px dashed var(--title);
-  outline-offset: -4px;
 }
 
 .quote {

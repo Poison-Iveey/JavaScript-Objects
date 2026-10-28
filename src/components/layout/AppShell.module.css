@@ -17,8 +17,6 @@
 .frame {
   flex: 1;
   min-width: 0;
-  max-width: 1440px;
-  margin: 0 auto;
   display: flex;
   gap: var(--frame-gap);
   background: var(--frame-bg);
@@ -41,7 +39,6 @@
   height: 100%;
   overflow-y: auto;
   padding: var(--main-pad);
-  scrollbar-width: thin;
 }
 
 /* Mobile top bar */

@@ -48,6 +48,7 @@ export function Banner() {
         borderRadius: "var(--banner-r)",
         overflow: "hidden",
         border: "1px solid var(--line)",
+        boxShadow: "var(--banner-shadow)",
         background: "#1b1328",
       }}
     >
@@ -66,6 +67,7 @@ export function Banner() {
         }}
       />
       <div style={{ position: "absolute", inset: 0, background: "var(--veil)" }} />
+      <div style={{ position: "absolute", inset: 0, background: "var(--banner-fade)", pointerEvents: "none" }} />
       <div
         style={{
           position: "absolute",

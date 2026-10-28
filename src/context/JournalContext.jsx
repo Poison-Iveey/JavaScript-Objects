@@ -37,7 +37,6 @@ function seedJournal(user) {
       vis: { read: true, recs: true },
     },
     settings: defaultSettings(),
-    sideArt: null,
     ...sampleCommunity(),
   };
 }
@@ -117,7 +116,6 @@ export function JournalProvider({ children }) {
       removeChallenge: (id) => update((j) => ({ challenges: j.challenges.filter((c) => c.id !== id) })),
       setProfile: (patch) => update((j) => ({ profile: { ...j.profile, ...patch } })),
       setSettings: (patch) => update((j) => ({ settings: { ...j.settings, ...patch } })),
-      setSideArt: (dataUrl) => update(() => ({ sideArt: dataUrl })),
       toggleFollow: (id) =>
         update((j) => ({
           following: j.following.includes(id) ? j.following.filter((x) => x !== id) : [...j.following, id],

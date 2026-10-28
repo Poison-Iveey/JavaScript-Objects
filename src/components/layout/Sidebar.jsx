@@ -1,20 +1,15 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import { Icon } from "../ui/Icon.jsx";
 import { NAV_GROUPS } from "../../config/navigation.js";
 import { useShell } from "./ShellContext.jsx";
-import { useJournal } from "../../hooks/useJournal.js";
 import { useLibrary } from "../../hooks/useLibrary.js";
+import { SidebarArt } from "./SidebarArt.jsx";
 import styles from "./Sidebar.module.css";
 
-const DEFAULT_ART = "/media/sidebar-artwork.jpeg";
-
 export function Sidebar({ navKey, unread }) {
-  const { mobile, collapsed, toggleCollapsed, closeDrawer, pickImage, takeImage } = useShell();
-  const { sideArt } = useJournal();
+  const { mobile, collapsed, toggleCollapsed, closeDrawer } = useShell();
   const { books } = useLibrary();
-  const [artOver, setArtOver] = useState(false);
   const showLabels = mobile || !collapsed;
 
   // A different saved quote each day.
@@ -57,27 +52,7 @@ export function Sidebar({ navKey, unread }) {
 
       {showLabels && (
         <div className={styles.bottom}>
-          <button
-            type="button"
-            data-drop-art
-            className={clsx(styles.art, artOver && styles.artOver)}
-            title="Change sidebar artwork"
-            onClick={() => pickImage("art")}
-            onDragOver={(e) => {
-              e.preventDefault();
-              setArtOver(true);
-            }}
-            onDragLeave={() => setArtOver(false)}
-            onDrop={(e) => {
-              e.preventDefault();
-              setArtOver(false);
-              const f = Array.from(e.dataTransfer.files).find((x) => x.type.startsWith("image/"));
-              if (f) takeImage(f, "art");
-            }}
-          >
-            <img src={sideArt || DEFAULT_ART} alt="" />
-            <span className={styles.artHint}>Drop or choose artwork</span>
-          </button>
+          <SidebarArt />
           {sideQuote && (
             <div className={styles.quote}>
               <span className={styles.quoteLabel}>From your quotes</span>

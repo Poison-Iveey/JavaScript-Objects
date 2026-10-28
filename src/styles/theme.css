@@ -9,13 +9,15 @@
   --frame-bg: transparent;
   --frame-shadow: none;
   --frame-r: 0;
-  --frame-gap: 18px;
+  --frame-gap: 0;
   --side-bg: #151029;
   --side-bd: 1px solid #2c2449;
-  --side-r: 14px;
-  --main-pad: 0 0 24px;
-  --banner-m: 0;
-  --banner-r: 14px;
+  --side-r: 0;
+  --main-pad: 0 22px 26px;
+  --banner-m: 18px 0 0;
+  --banner-r: 18px;
+  --banner-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+  --banner-fade: linear-gradient(180deg, rgba(15, 11, 29, 0) 62%, rgba(15, 11, 29, 0.5));
   --card: #15102a;
   --line: #2b2346;
   --ink: #e4dcee;
@@ -72,21 +74,25 @@
   --danger: #c9624d;
   --error: #d9745f;
   --online: #7fb98a;
+  --scroll-thumb: #3a3060;
+  --scroll-thumb-hover: #6f5f9c;
 }
 
 [data-theme="light"] {
   --bg: #efe9e6;
   --glow: radial-gradient(ellipse at 15% 100%, #e6d6d1 0%, #efe9e6 45%);
   --frame-bg: #fff;
-  --frame-shadow: 0 24px 60px rgba(90, 60, 50, 0.14);
-  --frame-r: 16px;
+  --frame-shadow: none;
+  --frame-r: 0;
   --frame-gap: 0;
   --side-bg: #f7f4f2;
-  --side-bd: none;
-  --side-r: 16px 0 0 16px;
+  --side-bd: 1px solid #ebe4e1;
+  --side-r: 0;
   --main-pad: 0 22px 26px;
-  --banner-m: 0 -22px;
-  --banner-r: 0 16px 0 0;
+  --banner-m: 18px 0 0;
+  --banner-r: 18px;
+  --banner-shadow: 0 16px 38px rgba(90, 60, 50, 0.18);
+  --banner-fade: linear-gradient(180deg, rgba(42, 30, 40, 0) 65%, rgba(42, 30, 40, 0.28));
   --card: #fff;
   --line: #ebe4e1;
   --ink: #2b2321;
@@ -140,12 +146,14 @@
   --auth-veil: rgba(239, 233, 230, 0.8);
   --auth-title: "Libre Caslon Text", serif;
   --barbg: rgba(255, 255, 255, 0.92);
+  --scroll-thumb: #d3c7c2;
+  --scroll-thumb-hover: #a98378;
 }
 
 /* Layout switches. The app shell sets data-m="1" below 760px wide, and
    data-dr / data-chat for the mobile drawer and the messages list/thread. */
 :root {
-  --shell-pad: 14px;
+  --shell-pad: 0;
   --aside-pos: relative;
   --aside-x: none;
   --desk-only: flex;
@@ -164,8 +172,8 @@
   --side-r: 0 16px 16px 0;
   --side-bd: none;
   --main-pad: 0 14px 96px;
-  --banner-m: 0 -14px;
-  --banner-r: 0;
+  --banner-m: 12px 0 0;
+  --banner-r: 14px;
   --h2-size: 21px;
   --desk-only: none;
   --mob-only: flex;

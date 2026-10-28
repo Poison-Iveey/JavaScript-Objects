@@ -1,6 +1,5 @@
 @import "./theme.css";
 @import "./typography.css";
-@import "./animations.css";
 
 *,
 *::before,
@@ -11,48 +10,41 @@
 html,
 body,
 #root {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: var(--text-base);
-  color: var(--text-primary);
-  background: var(--bg-app);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  color: var(--ink);
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
 
 button,
 input,
-textarea {
+textarea,
+select {
   font-family: inherit;
-  color: inherit;
-}
-
-button {
-  cursor: pointer;
-  background: none;
-  border: none;
 }
 
 a {
-  color: inherit;
+  color: var(--title);
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 img {
-  max-width: 100%;
   display: block;
 }
 
-#root {
-  min-height: 100dvh;
-  position: relative;
-  background: var(--bg-app);
+input[type="range"] {
+  accent-color: var(--ring1);
 }
 
 ::selection {
-  background: var(--color-mauve);
-  color: var(--color-cream);
+  background: var(--nav-active);
+  color: var(--ink);
 }

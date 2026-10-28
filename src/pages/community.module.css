@@ -1,0 +1,545 @@
+/* Social */
+.socialHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.people {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.person {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.person:hover {
+  border-color: var(--icon);
+}
+
+.personHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.personName {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.personName span:first-child {
+  font-size: 14.5px;
+}
+
+.personName span:last-child,
+.meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.meta {
+  font-size: 11.5px;
+}
+
+.personBio {
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.covers {
+  display: flex;
+  gap: 6px;
+}
+
+.covers img {
+  width: 34px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* Messages */
+.chat {
+  display: flex;
+  gap: 16px;
+  margin-top: 22px;
+  height: var(--chat-h);
+  min-height: 440px;
+}
+
+.list {
+  flex: 0 1 310px;
+  min-width: 0;
+  display: var(--chat-list);
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.listHead {
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.listHead input {
+  font-size: 13.5px;
+  padding: 10px 12px;
+}
+
+.convos {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.convo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.convo:hover,
+.convoOn {
+  background: var(--nav-active);
+}
+
+.convo:hover {
+  opacity: 1;
+}
+
+.chatAvatar {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--input);
+  border: 1px solid var(--line);
+  color: var(--title);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 14px var(--font-body);
+}
+
+.online {
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--online);
+  border: 2px solid var(--card);
+}
+
+.convoText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.convoLine {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.convoName {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.convoTime {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.convoLast {
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.unread {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--btn);
+  color: var(--btn-ink);
+  font: 600 10.5px/18px var(--font-body);
+  text-align: center;
+}
+
+.thread {
+  flex: 1 1 0;
+  min-width: 0;
+  display: var(--chat-thread);
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.threadHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.backButton {
+  display: var(--mob-only);
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: -8px;
+}
+
+.threadWho {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.threadWho span:first-child {
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.threadWho span:last-child {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.msgs {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mine,
+.theirs {
+  max-width: 78%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mine {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.theirs {
+  align-self: flex-start;
+}
+
+.bubble {
+  padding: 9px 13px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.mine .bubble {
+  border-radius: 14px 14px 4px 14px;
+  background: var(--btn);
+  color: var(--btn-ink);
+}
+
+.theirs .bubble {
+  border-radius: 14px 14px 14px 4px;
+  background: var(--input);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.time {
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+.typing {
+  align-self: flex-start;
+  padding: 8px 13px;
+  border-radius: 14px;
+  background: var(--input);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12.5px;
+  font-style: italic;
+}
+
+.threadEmpty {
+  margin: auto;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.composer input {
+  flex: 1;
+  border-radius: 22px;
+  padding: 11px 15px;
+  font-size: 13.5px;
+}
+
+.send {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 0;
+  border-radius: 50%;
+  background: var(--btn);
+  color: var(--btn-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.noThread {
+  margin: auto;
+  text-align: center;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.noThread strong {
+  font-family: var(--hd-font);
+  color: var(--hd-ink);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* Blog */
+.blogBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+
+.tag {
+  padding: 7px 13px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: transparent;
+  color: var(--ink);
+  font: 400 12.5px var(--font-body);
+  cursor: pointer;
+}
+
+.tagOn {
+  background: var(--nav-active);
+}
+
+.compose {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.compose .postTitle {
+  font: 500 20px var(--font-serif);
+  padding: 10px 12px;
+}
+
+.compose textarea {
+  font-size: 13.5px;
+  line-height: 1.6;
+  padding: 10px 12px;
+}
+
+.composeActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 14px;
+}
+
+.post {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  overflow: hidden;
+  padding: 0;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.post:hover {
+  border-color: var(--icon);
+}
+
+.post img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.postText {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.postTag {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--title);
+}
+
+.postTitleCard {
+  font: 500 21px/1.2 var(--font-serif);
+}
+
+.excerpt {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.postMeta {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.article {
+  max-width: 720px;
+  margin: 22px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.allPosts {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: 400 13px var(--font-body);
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.article h3 {
+  margin: 0;
+  font: 500 34px/1.15 var(--font-serif);
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.article > img {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.article p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.articleActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}

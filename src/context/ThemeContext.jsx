@@ -9,8 +9,8 @@ export const ThemeContext = createContext(null);
 
 function getInitialTheme() {
   const stored = getJSON(THEME_KEY);
-  if (stored === "light" || stored === "dark") return stored;
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  // Dark ("Midnight Library") is the house default; "Parchment" is opt-in.
+  return stored === "light" ? "light" : "dark";
 }
 
 // Keeps the native status bar in sync with the in-app theme toggle — without
@@ -21,7 +21,7 @@ function syncNativeStatusBar(theme) {
   // Style.Dark = dark content (for a light bar); Style.Light = light content
   // (for a dark bar) — named after the content color, not the app theme.
   StatusBar.setStyle({ style: theme === "dark" ? Style.Light : Style.Dark }).catch(() => {});
-  StatusBar.setBackgroundColor({ color: theme === "dark" ? "#1c1220" : "#F8F4E9" }).catch(() => {});
+  StatusBar.setBackgroundColor({ color: theme === "dark" ? "#0F0B1D" : "#EFE9E6" }).catch(() => {});
 }
 
 export function ThemeProvider({ children }) {

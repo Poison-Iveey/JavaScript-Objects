@@ -1,0 +1,60 @@
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  min-width: 0;
+}
+
+.roomy {
+  padding: 16px;
+}
+
+.quote {
+  background: var(--quote-bg);
+  color: var(--quote-ink);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: var(--hd-pad);
+  background: var(--hd-bg);
+  border-bottom: 1px solid var(--hd-line);
+  border-radius: var(--hd-r);
+  font-family: var(--hd-font);
+  font-size: var(--hd-size);
+  font-weight: var(--hd-w);
+  color: var(--hd-ink);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+}
+
+.aside {
+  font: 400 11.5px var(--font-body);
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+.asideButton {
+  composes: aside;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.quoteMark {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  line-height: 0.6;
+  color: var(--icon);
+  padding-top: 8px;
+}

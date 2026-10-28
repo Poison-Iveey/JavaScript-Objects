@@ -1,69 +1,45 @@
-.overlay {
+.scrim {
   position: fixed;
   inset: 0;
-  background: var(--bg-overlay);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-5);
-  z-index: 100;
+  background: var(--scrim);
+  z-index: 30;
 }
 
-.sheet {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-  max-height: min(85dvh, 720px);
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-surface);
-  border-radius: var(--radius-lg);
-  border: 1.5px solid var(--border-strong);
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
+.panel {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: calc(100% - 28px);
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  z-index: 31;
+  padding: 22px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
 }
 
-.sheet::before {
-  content: "";
-  display: block;
-  flex-shrink: 0;
-  height: 4px;
-  background: var(--gradient-bar);
-}
-
-.header {
+.head {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-shrink: 0;
-  padding: var(--space-5) var(--space-5) var(--space-4);
+  align-items: center;
 }
 
 .title {
-  margin: 0;
-  font-size: var(--text-xl);
+  font-family: var(--hd-font);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hd-ink);
 }
 
-.body {
-  flex: 1;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  padding: 0 var(--space-5) calc(var(--space-6) + var(--safe-bottom));
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent) transparent;
-}
-
-.body::-webkit-scrollbar {
-  width: 6px;
-}
-
-.body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.body::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: var(--radius-pill);
+.close {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
 }

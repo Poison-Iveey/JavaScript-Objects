@@ -1,40 +1,37 @@
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence, motion } from "framer-motion";
-import { X } from "lucide-react";
-import { IconButton } from "./IconButton.jsx";
 import styles from "./Modal.module.css";
 
-export function Modal({ isOpen, onClose, title, children }) {
+export function Modal({ title, onClose, width = 560, titleSize = 13, padding, children }) {
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
   return createPortal(
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          className={styles.overlay}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-        >
-          <motion.div
-            className={styles.sheet}
-            role="dialog"
-            aria-modal="true"
-            aria-label={title}
-            onClick={(event) => event.stopPropagation()}
-            initial={{ opacity: 0, y: 24, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 16, scale: 0.97 }}
-            transition={{ type: "spring", damping: 26, stiffness: 320 }}
-          >
-            <div className={styles.header}>
-              <h2 className={styles.title}>{title}</h2>
-              <IconButton icon={X} label="Close" onClick={onClose} />
-            </div>
-            <div className={styles.body}>{children}</div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>,
+    <>
+      <div className={styles.scrim} onClick={onClose} />
+      <div
+        className={styles.panel}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        style={{ width: `min(${width}px, calc(100% - 28px))`, padding }}
+      >
+        <div className={styles.head}>
+          <span className={styles.title} style={{ fontSize: titleSize }}>
+            {title}
+          </span>
+          <button type="button" className={styles.close} onClick={onClose} aria-label="Close">
+            ×
+          </button>
+        </div>
+        {children}
+      </div>
+    </>,
     document.body
   );
 }

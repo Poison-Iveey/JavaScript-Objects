@@ -2,17 +2,21 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { BooksProvider } from "./context/BooksContext.jsx";
+import { JournalProvider } from "./context/JournalContext.jsx";
 import { ProtectedRoute } from "./routes/ProtectedRoute.jsx";
-import { SplashPage } from "./pages/SplashPage.jsx";
+import { AppShell } from "./components/layout/AppShell.jsx";
 import { AuthPage } from "./pages/AuthPage.jsx";
+import { DashboardPage } from "./pages/DashboardPage.jsx";
 import { LibraryPage } from "./pages/LibraryPage.jsx";
-import { CurrentlyReadingPage } from "./pages/CurrentlyReadingPage.jsx";
-import { FavoritesPage } from "./pages/FavoritesPage.jsx";
-import { AuthorsPage } from "./pages/AuthorsPage.jsx";
-import { AuthorDetailPage } from "./pages/AuthorDetailPage.jsx";
-import { GenresPage } from "./pages/GenresPage.jsx";
-import { GenreDetailPage } from "./pages/GenreDetailPage.jsx";
+import { ReadingLogPage } from "./pages/ReadingLogPage.jsx";
+import { QuotesPage } from "./pages/QuotesPage.jsx";
+import { ChallengesPage } from "./pages/ChallengesPage.jsx";
+import { SocialPage } from "./pages/SocialPage.jsx";
+import { MessagesPage } from "./pages/MessagesPage.jsx";
+import { BlogPage } from "./pages/BlogPage.jsx";
+import { ProfilePage, ReaderPage } from "./pages/ProfilePage.jsx";
 import { SettingsPage } from "./pages/SettingsPage.jsx";
+import { AboutPage } from "./pages/AboutPage.jsx";
 import { PublicProfilePage } from "./pages/PublicProfilePage.jsx";
 
 export function App() {
@@ -20,78 +24,39 @@ export function App() {
     <ThemeProvider>
       <AuthProvider>
         <BooksProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<SplashPage />} />
-              <Route path="/auth" element={<AuthPage />} />
-              <Route
-                path="/library"
-                element={
-                  <ProtectedRoute>
-                    <LibraryPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/reading"
-                element={
-                  <ProtectedRoute>
-                    <CurrentlyReadingPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/favorites"
-                element={
-                  <ProtectedRoute>
-                    <FavoritesPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/authors"
-                element={
-                  <ProtectedRoute>
-                    <AuthorsPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/authors/:author"
-                element={
-                  <ProtectedRoute>
-                    <AuthorDetailPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/genres"
-                element={
-                  <ProtectedRoute>
-                    <GenresPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/genres/:genre"
-                element={
-                  <ProtectedRoute>
-                    <GenreDetailPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/settings"
-                element={
-                  <ProtectedRoute>
-                    <SettingsPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/u/:shareSlug" element={<PublicProfilePage />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </BrowserRouter>
+          <JournalProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/u/:shareSlug" element={<PublicProfilePage />} />
+                <Route
+                  element={
+                    <ProtectedRoute>
+                      <AppShell />
+                    </ProtectedRoute>
+                  }
+                >
+                  <Route path="/dashboard" element={<DashboardPage />} />
+                  <Route path="/library" element={<LibraryPage />} />
+                  <Route path="/wishlist" element={<LibraryPage wishlist />} />
+                  <Route path="/log" element={<ReadingLogPage />} />
+                  <Route path="/quotes" element={<QuotesPage />} />
+                  <Route path="/challenges" element={<ChallengesPage />} />
+                  <Route path="/social" element={<SocialPage />} />
+                  <Route path="/readers/:readerId" element={<ReaderPage />} />
+                  <Route path="/messages" element={<MessagesPage />} />
+                  <Route path="/messages/:readerId" element={<MessagesPage />} />
+                  <Route path="/blog" element={<BlogPage />} />
+                  <Route path="/blog/:postId" element={<BlogPage />} />
+                  <Route path="/profile" element={<ProfilePage />} />
+                  <Route path="/profile/:tab" element={<ProfilePage />} />
+                  <Route path="/settings" element={<SettingsPage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                </Route>
+                <Route path="*" element={<Navigate to="/dashboard" replace />} />
+              </Routes>
+            </BrowserRouter>
+          </JournalProvider>
         </BooksProvider>
       </AuthProvider>
     </ThemeProvider>

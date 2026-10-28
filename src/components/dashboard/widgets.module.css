@@ -1,0 +1,471 @@
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+  align-items: flex-start;
+}
+
+.column {
+  flex: 1 1 250px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tabsRow {
+  margin: 12px 0 10px;
+}
+
+.twoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.empty {
+  padding: 18px 4px;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Reading progress */
+.chartHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  margin: 16px 0 10px;
+}
+
+.chartHead span:last-child {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.chart {
+  display: flex;
+  gap: 6px;
+}
+
+.ticks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+  font-size: 10px;
+  color: var(--muted);
+  text-align: right;
+  margin-top: -6px;
+}
+
+.plot {
+  flex: 1;
+  min-width: 0;
+}
+
+.bars {
+  height: 144px;
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  padding: 0 5px;
+}
+
+.bar {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  opacity: 0.92;
+}
+
+.bar:hover {
+  opacity: 1;
+}
+
+.bar svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.barLabels {
+  display: flex;
+  gap: 7px;
+  padding: 4px 5px 0;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.barLabels span {
+  flex: 1;
+  text-align: center;
+}
+
+/* Tables (weekly log, all entries) */
+.table {
+  margin-top: 14px;
+  font-size: 12px;
+}
+
+.thead,
+.row {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr) 44px;
+}
+
+.thead {
+  background: var(--th-bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+}
+
+.thead span {
+  padding: 9px 8px;
+}
+
+.thead span + span {
+  border-left: 1px solid var(--line);
+}
+
+.row {
+  border-bottom: 1px solid var(--line);
+}
+
+.row span {
+  padding: 10px 8px;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inlineAdd {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px;
+  gap: 6px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.inlineAdd select,
+.inlineAdd input {
+  min-width: 0;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--input);
+  color: var(--ink);
+  font: inherit;
+}
+
+.inlineButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.inlineButtons button {
+  margin-top: 6px;
+}
+
+/* Quotes */
+.quoteBody {
+  text-align: center;
+  padding: 22px 10px 14px;
+  font-family: var(--font-serif);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bigQuote {
+  font-size: 34px;
+  line-height: 0.5;
+  color: var(--icon);
+}
+
+.quoteButton {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.quoteButton p {
+  margin: 0;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.quoteButton div {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.noQuotes {
+  margin: 0;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.moonMark {
+  display: var(--orn);
+  justify-content: center;
+  color: var(--title);
+  font-size: 30px;
+  line-height: 1;
+}
+
+/* Add-a-book drop card */
+.dropCard {
+  aspect-ratio: 1 / 1;
+  max-height: 250px;
+  width: 100%;
+  border: 1.5px dashed var(--icon);
+  border-radius: 12px;
+  background: var(--drop);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  font: inherit;
+}
+
+.dropCard:hover {
+  background: var(--nav-active);
+}
+
+.dropTitle {
+  font-family: var(--hd-font);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hd-ink);
+}
+
+.dropText {
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+/* Calendar */
+.month {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  margin: 12px 0 10px;
+}
+
+.weekdays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.weekdays {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  padding: 6px 0;
+  background: var(--th-bg);
+  border-radius: 4px 4px 0 0;
+}
+
+.days {
+  border-top: 1px solid var(--cell-line);
+  border-left: 1px solid var(--cell-line);
+}
+
+.day {
+  position: relative;
+  height: 46px;
+  border-right: 1px solid var(--cell-line);
+  border-bottom: 1px solid var(--cell-line);
+  padding: 4px 2px;
+  font-size: 11.5px;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.daySel {
+  background: var(--nav-active);
+}
+
+.dayMuted {
+  color: var(--cell-muted);
+}
+
+.rel {
+  width: 16px;
+  height: 18px;
+  border: 0;
+  padding: 0;
+  border-radius: 2px;
+  background: var(--rel);
+  cursor: pointer;
+  color: #f3dcb4;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.today {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--title);
+  margin-top: 5px;
+}
+
+.dayInfo {
+  font-size: 12px;
+  color: var(--muted);
+  padding: 10px 2px 0;
+  line-height: 1.4;
+}
+
+/* Challenge rings */
+.rings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.ring {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+
+.ringLarge {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.ringRemove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 4px;
+}
+
+.ringName {
+  font-size: 13px;
+  padding: 0 14px;
+}
+
+.ringLarge .ringName {
+  font-size: 14px;
+}
+
+.ringGraphic {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.ringLarge .ringGraphic {
+  margin-top: 12px;
+}
+
+.ringSpark {
+  display: var(--orn);
+  position: absolute;
+  left: 12%;
+  color: var(--title);
+  font-size: 12px;
+}
+
+.ringPct {
+  position: absolute;
+  font-size: 18px;
+  color: var(--ink);
+}
+
+.ringLarge .ringPct {
+  font-size: 20px;
+}
+
+.ringCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.ringLarge .ringCount {
+  margin-top: 10px;
+}
+
+.step {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.ringLarge .step {
+  width: 26px;
+  height: 26px;
+}
+
+.chalAdd {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px;
+  gap: 6px;
+}
+
+.chalAdd input {
+  min-width: 0;
+  padding: 7px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--input);
+  color: var(--ink);
+  font: 400 12.5px var(--font-body);
+}

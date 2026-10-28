@@ -1,77 +1,110 @@
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
-import { BookMarked } from "lucide-react";
-import { AuthForm } from "../components/auth/AuthForm.jsx";
-import { GoogleIcon } from "../components/ui/GoogleIcon.jsx";
-import { ParkScene } from "../components/decor/ParkScene.jsx";
+import { useRef, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { Button, Field, Segmented, ThemeButton, controlStyles } from "../components/ui/controls.jsx";
 import { useAuth } from "../hooks/useAuth.js";
+import { isValidEmail } from "../utils/validators.js";
 import styles from "./AuthPage.module.css";
 
+const MODES = [
+  { value: "signin", label: "Sign in" },
+  { value: "signup", label: "Create account" },
+];
+
 export function AuthPage() {
-  const { user, signInWithGoogle } = useAuth();
-  const [mode, setMode] = useState("login");
-  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+  const { user, isLoading, signIn, signUp, signInWithGoogle } = useAuth();
+  const navigate = useNavigate();
+  const [mode, setMode] = useState("signin");
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passRef = useRef(null);
 
-  if (user) return <Navigate to="/library" replace />;
+  if (!isLoading && user) return <Navigate to="/dashboard" replace />;
 
-  async function handleGoogleClick() {
-    setIsGoogleLoading(true);
+  const isSignup = mode === "signup";
+
+  const submit = async () => {
+    const email = emailRef.current?.value.trim() || "";
+    const password = passRef.current?.value || "";
+    if (!isValidEmail(email)) return setError("Enter a valid email address.");
+    if (password.length < 6) return setError("Password must be at least 6 characters.");
+    setError("");
+    setBusy(true);
     try {
-      await signInWithGoogle();
+      if (isSignup) {
+        const displayName = nameRef.current?.value.trim() || email.split("@")[0];
+        await signUp({ displayName, email, password });
+      } else {
+        await signIn({ email, password });
+      }
+      navigate("/dashboard", { replace: true });
+    } catch (e) {
+      setError(e.message);
     } finally {
-      setIsGoogleLoading(false);
+      setBusy(false);
     }
-  }
+  };
+
+  const onKey = (e) => e.key === "Enter" && submit();
 
   return (
     <div className={styles.page}>
-      <ParkScene leafCount={10} />
-      <img className={styles.cornerLogo} src="/images/bookbox-logo.png" alt="BookBox" />
+      <video className={styles.video} src="/media/header.mp4" autoPlay loop muted playsInline />
+      <div className={styles.veil} />
+      <ThemeButton size={42} iconSize={19} style={{ position: "absolute", top: 16, right: 16, zIndex: 2, background: "var(--panel)" }} />
+
       <div className={styles.card}>
-        <div className={styles.brand}>
-          <BookMarked size={28} strokeWidth={1.5} />
-          <h1 className={styles.title}>BookBox</h1>
+        <div className={styles.crescent} aria-hidden="true">
+          <span />
+          <span>☾</span>
+          <span />
         </div>
+        <h1 className={styles.title}>Literary Journey</h1>
+        <p className={styles.tagline}>Your personal library of every book you've read.</p>
 
-        <div className={styles.tabs}>
-          <button
-            className={mode === "login" ? styles.tabActive : styles.tab}
-            onClick={() => setMode("login")}
-            type="button"
-          >
-            Log In
+        <Segmented
+          items={MODES}
+          value={mode}
+          onChange={(m) => {
+            setMode(m);
+            setError("");
+          }}
+          style={{ marginBottom: 18 }}
+        />
+
+        <div className={styles.form}>
+          {isSignup && (
+            <Field label="Name">
+              <input ref={nameRef} className={controlStyles.input} placeholder="Ada Reader" autoComplete="name" />
+            </Field>
+          )}
+          <Field label="Email">
+            <input ref={emailRef} type="email" className={controlStyles.input} placeholder="you@example.com" autoComplete="email" onKeyDown={onKey} />
+          </Field>
+          <Field label="Password">
+            <input
+              ref={passRef}
+              type="password"
+              className={controlStyles.input}
+              placeholder="At least 6 characters"
+              autoComplete={isSignup ? "new-password" : "current-password"}
+              onKeyDown={onKey}
+            />
+          </Field>
+          {error && <div className={styles.error}>{error}</div>}
+          <Button className={styles.cta} onClick={submit} disabled={busy}>
+            {busy ? "Please wait…" : isSignup ? "Create account" : "Sign in"}
+          </Button>
+          <div className={styles.or}>
+            <span />
+            OR
+            <span />
+          </div>
+          <button type="button" className={styles.google} onClick={() => signInWithGoogle().catch((e) => setError(e.message))}>
+            Continue with Google
           </button>
-          <button
-            className={mode === "signup" ? styles.tabActive : styles.tab}
-            onClick={() => setMode("signup")}
-            type="button"
-          >
-            Sign Up
-          </button>
-        </div>
-
-        <button className={styles.googleButton} type="button" onClick={handleGoogleClick} disabled={isGoogleLoading}>
-          <GoogleIcon />
-          {isGoogleLoading ? "Connecting…" : "Continue with Google"}
-        </button>
-
-        <div className={styles.divider}>
-          <span>or continue with email</span>
-        </div>
-
-        <div className={styles.formArea}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={mode}
-              initial={{ opacity: 0, x: 12 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -12 }}
-              transition={{ duration: 0.25 }}
-            >
-              <AuthForm mode={mode} />
-            </motion.div>
-          </AnimatePresence>
+          <p className={styles.note}>You'll stay signed in on this device.</p>
         </div>
       </div>
     </div>

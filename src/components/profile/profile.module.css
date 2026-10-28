@@ -1,0 +1,291 @@
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--nav-active);
+  color: var(--title);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 30px var(--font-body);
+  border: 1px solid var(--line);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.who {
+  flex: 1 1 240px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.name {
+  font: 500 28px/1.1 var(--font-serif);
+  color: var(--ink);
+}
+
+.handle {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.bio {
+  margin: 4px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.genres span {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.stats {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat span:first-child {
+  font: 500 24px var(--font-serif);
+  color: var(--title);
+}
+
+.stat span:last-child {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.privateNote {
+  padding: 10px 14px;
+  border: 1px dashed var(--icon);
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.back {
+  align-self: flex-start;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: 400 13px var(--font-body);
+  cursor: pointer;
+  padding: 0;
+}
+
+.emptyNote {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* Review / activity rows */
+.review {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.review > img {
+  width: 56px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex: none;
+}
+
+.reviewBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.actor,
+.like {
+  align-self: flex-start;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--muted);
+  font: 400 12px var(--font-body);
+  cursor: pointer;
+}
+
+.like {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.reviewTitle {
+  font-size: 14px;
+}
+
+.reviewTitle span {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.reviewText {
+  margin: 2px 0 0;
+  font: italic 400 16px/1.45 var(--font-serif);
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+/* Edit profile */
+.photoRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.photoButton {
+  width: 84px;
+  height: 84px;
+  flex: none;
+  border-radius: 50%;
+  border: 1.5px dashed var(--icon);
+  background: var(--nav-active);
+  color: var(--title);
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  font: 600 26px var(--font-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoButton img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fields input,
+.fields textarea {
+  font-size: 14px;
+}
+
+.genreLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.genreChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.themeCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.themeCard {
+  position: relative;
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 6px;
+  background: none;
+  cursor: pointer;
+  color: var(--ink);
+  font: 400 12.5px var(--font-body);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.themeOn {
+  border-color: var(--icon);
+}
+
+.swatch {
+  display: block;
+  height: 56px;
+  border-radius: 6px;
+}
+
+.soon {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.shareRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.shareUrl {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

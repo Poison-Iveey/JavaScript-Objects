@@ -1,109 +1,185 @@
-:root {
-  --color-deep-violet: #502d55;
-  --color-mauve: #935073;
-  --color-peach: #f6dbc0;
-  --color-cream: #f8f4e9;
+/* "Literary Journey" theme — ported 1:1 from the Reading App template
+   (Shelved Design System / templates/reading-app). Dark ("Midnight Library")
+   is the default; light is "Parchment". The theme lives on <html data-theme>. */
 
-  --gradient-bar: linear-gradient(
-    90deg,
-    var(--color-deep-violet),
-    var(--color-mauve),
-    var(--color-peach),
-    var(--color-cream)
-  );
-
-  --bg-app: var(--color-cream);
-  --bg-surface: #ffffff;
-  --bg-surface-raised: var(--color-peach);
-  --bg-overlay: rgba(80, 45, 85, 0.45);
-
-  --text-primary: var(--color-deep-violet);
-  --text-secondary: #7a5b7e;
-  --text-on-accent: var(--color-cream);
-  --text-muted: #a98aac;
-
-  --accent: var(--color-mauve);
-  --accent-strong: var(--color-deep-violet);
-  --accent-fill: var(--color-deep-violet);
-  --border-subtle: rgba(80, 45, 85, 0.15);
-  --border-strong: rgba(80, 45, 85, 0.35);
-
-  --danger: #b3413f;
-  --success: #4c7a5e;
-
-  --shadow-sm: 0 1px 3px rgba(80, 45, 85, 0.12);
-  --shadow-md: 0 8px 24px rgba(80, 45, 85, 0.18);
-  --shadow-lg: 0 16px 40px rgba(80, 45, 85, 0.28);
-
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-pill: 999px;
-
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-
-  --safe-top: env(safe-area-inset-top, 0px);
-  --safe-bottom: env(safe-area-inset-bottom, 0px);
-
-  /* Decorative autumn-park scene (Splash/Auth backgrounds) — scoped tokens,
-     not used by functional UI, so they can lean warmer than the core palette. */
-  --scene-sky-top: var(--color-peach);
-  --scene-sky-bottom: var(--color-cream);
-  --scene-hill-back: rgba(147, 80, 115, 0.22);
-  --scene-hill-mid: rgba(80, 45, 85, 0.32);
-  --scene-hill-front: rgba(80, 45, 85, 0.55);
-  --scene-tree: rgba(80, 45, 85, 0.4);
-  --scene-figure: rgba(80, 45, 85, 0.65);
-  --scene-leaf-1: var(--color-peach);
-  --scene-leaf-2: var(--color-mauve);
-  --scene-leaf-3: #d99a5f;
-
-  --sidebar-tint: linear-gradient(165deg, rgba(246, 219, 192, 0.4), rgba(246, 219, 192, 0) 55%);
-  --ambient-sun: radial-gradient(circle, rgba(217, 154, 95, 0.35), rgba(217, 154, 95, 0) 70%);
-  --ambient-cloud: rgba(255, 255, 255, 0.22);
-  --ambient-line: rgba(80, 45, 85, 0.12);
+:root,
+[data-theme="dark"] {
+  --bg: #0f0b1d;
+  --glow: radial-gradient(ellipse at 50% 0%, #241a40 0%, #0f0b1d 60%);
+  --frame-bg: transparent;
+  --frame-shadow: none;
+  --frame-r: 0;
+  --frame-gap: 18px;
+  --side-bg: #151029;
+  --side-bd: 1px solid #2c2449;
+  --side-r: 14px;
+  --main-pad: 0 0 24px;
+  --banner-m: 0;
+  --banner-r: 14px;
+  --card: #15102a;
+  --line: #2b2346;
+  --ink: #e4dcee;
+  --muted: #978cb0;
+  --title: #e6c193;
+  --h2-font: "Cinzel", serif;
+  --h2-color: #ebcfa6;
+  --h2-w: 500;
+  --h2-tt: none;
+  --h2-size: 26px;
+  --hd-font: "Cinzel", serif;
+  --hd-size: 13.5px;
+  --hd-w: 500;
+  --hd-ink: #ead8bd;
+  --hd-bg: transparent;
+  --hd-line: #2b2346;
+  --hd-pad: 2px 2px 12px;
+  --hd-r: 0;
+  --icon: #d9b083;
+  --bar-a: #9479cf;
+  --bar-b: #5f4699;
+  --hi-a: #e7c093;
+  --hi-b: #9c7a58;
+  --star: #e9c27c;
+  --star-off: #4d4466;
+  --ring-track: #2a2245;
+  --ring1: #d8ae86;
+  --ring2: #a383e0;
+  --nav-active: #2a2150;
+  --nav-ink: #d8cde8;
+  --orn: flex;
+  --quote-bg: #15102a;
+  --quote-ink: #e8ddcc;
+  --cell-line: #272040;
+  --cell-muted: #564c70;
+  --cap-bg: transparent;
+  --cap-ink: #e8c99d;
+  --cap-font: "Cormorant Garamond", serif;
+  --cap-style: italic;
+  --cap-size: 15px;
+  --tab-on: #e6c193;
+  --th-bg: #1c1636;
+  --rel: #4a3580;
+  --input: #1b1534;
+  --panel: #17112c;
+  --btn: #e6c193;
+  --btn-ink: #1a1330;
+  --scrim: rgba(6, 4, 14, 0.66);
+  --drop: #1a1433;
+  --veil: linear-gradient(180deg, rgba(15, 11, 29, 0.05), rgba(15, 11, 29, 0.55));
+  --auth-veil: rgba(15, 11, 29, 0.72);
+  --auth-title: "Cinzel", serif;
+  --barbg: rgba(15, 11, 29, 0.88);
+  --danger: #c9624d;
+  --error: #d9745f;
+  --online: #7fb98a;
 }
 
-[data-theme="dark"] {
-  --bg-app: #1c1220;
-  --bg-surface: #2a1c2c;
-  --bg-surface-raised: #3a2740;
-  --bg-overlay: rgba(0, 0, 0, 0.6);
+[data-theme="light"] {
+  --bg: #efe9e6;
+  --glow: radial-gradient(ellipse at 15% 100%, #e6d6d1 0%, #efe9e6 45%);
+  --frame-bg: #fff;
+  --frame-shadow: 0 24px 60px rgba(90, 60, 50, 0.14);
+  --frame-r: 16px;
+  --frame-gap: 0;
+  --side-bg: #f7f4f2;
+  --side-bd: none;
+  --side-r: 16px 0 0 16px;
+  --main-pad: 0 22px 26px;
+  --banner-m: 0 -22px;
+  --banner-r: 0 16px 0 0;
+  --card: #fff;
+  --line: #ebe4e1;
+  --ink: #2b2321;
+  --muted: #7d6f6a;
+  --title: #2a201d;
+  --h2-font: "Jost", sans-serif;
+  --h2-color: #231b19;
+  --h2-w: 700;
+  --h2-tt: uppercase;
+  --h2-size: 22px;
+  --hd-font: "Jost", sans-serif;
+  --hd-size: 13px;
+  --hd-w: 600;
+  --hd-ink: #3b302c;
+  --hd-bg: #efe6e2;
+  --hd-line: transparent;
+  --hd-pad: 6px 10px;
+  --hd-r: 5px;
+  --icon: #9b7a6c;
+  --bar-a: #a8907f;
+  --bar-b: #a8907f;
+  --hi-a: #8c6f60;
+  --hi-b: #8c6f60;
+  --star: #d9a945;
+  --star-off: #d4cbc7;
+  --ring-track: #efe7e3;
+  --ring1: #a98378;
+  --ring2: #a98378;
+  --nav-active: #ebe4e1;
+  --nav-ink: #3a302d;
+  --orn: none;
+  --quote-bg: #ecdfdb;
+  --quote-ink: #3a2e2a;
+  --cell-line: #ece5e2;
+  --cell-muted: #bcb1ad;
+  --cap-bg: rgba(255, 255, 255, 0.92);
+  --cap-ink: #3a302d;
+  --cap-font: "Jost", sans-serif;
+  --cap-style: normal;
+  --cap-size: 11px;
+  --tab-on: #2b2321;
+  --th-bg: transparent;
+  --rel: #c9a99c;
+  --input: #fbf8f7;
+  --panel: #fff;
+  --btn: #3a2e2a;
+  --btn-ink: #fff;
+  --scrim: rgba(60, 40, 35, 0.38);
+  --drop: #faf6f4;
+  --veil: none;
+  --auth-veil: rgba(239, 233, 230, 0.8);
+  --auth-title: "Libre Caslon Text", serif;
+  --barbg: rgba(255, 255, 255, 0.92);
+}
 
-  --text-primary: var(--color-cream);
-  --text-secondary: var(--color-peach);
-  --text-on-accent: var(--color-cream);
-  --text-muted: #8d7a91;
+/* Layout switches. The app shell sets data-m="1" below 760px wide, and
+   data-dr / data-chat for the mobile drawer and the messages list/thread. */
+:root {
+  --shell-pad: 14px;
+  --aside-pos: relative;
+  --aside-x: none;
+  --desk-only: flex;
+  --mob-only: none;
+  --chat-h: calc(100vh - 150px);
+  --chat-list: flex;
+  --chat-thread: flex;
+}
 
-  --accent: var(--color-mauve);
-  --accent-strong: var(--color-peach);
-  --accent-fill: var(--color-mauve);
-  --border-subtle: rgba(246, 219, 192, 0.12);
-  --border-strong: rgba(246, 219, 192, 0.28);
+[data-m="1"] {
+  --shell-pad: 0;
+  --frame-r: 0;
+  --frame-gap: 0;
+  --frame-shadow: none;
+  --aside-pos: fixed;
+  --side-r: 0 16px 16px 0;
+  --side-bd: none;
+  --main-pad: 0 14px 96px;
+  --banner-m: 0 -14px;
+  --banner-r: 0;
+  --h2-size: 21px;
+  --desk-only: none;
+  --mob-only: flex;
+  --chat-h: calc(100vh - 190px);
+}
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+[data-m="1"][data-dr="0"] {
+  --aside-x: translateX(-105%);
+}
 
-  --scene-sky-top: #3a2740;
-  --scene-sky-bottom: #1c1220;
-  --scene-hill-back: rgba(147, 80, 115, 0.3);
-  --scene-hill-mid: rgba(58, 39, 64, 0.75);
-  --scene-hill-front: rgba(20, 13, 22, 0.92);
-  --scene-tree: rgba(147, 80, 115, 0.45);
-  --scene-figure: rgba(246, 219, 192, 0.6);
-  --scene-leaf-1: var(--color-peach);
-  --scene-leaf-2: var(--color-mauve);
-  --scene-leaf-3: #d99a5f;
+[data-m="1"][data-chat="thread"] {
+  --chat-list: none;
+}
 
-  --sidebar-tint: linear-gradient(165deg, rgba(147, 80, 115, 0.35), rgba(147, 80, 115, 0) 55%);
-  --ambient-sun: radial-gradient(circle, rgba(246, 219, 192, 0.18), rgba(246, 219, 192, 0) 70%);
-  --ambient-cloud: rgba(246, 219, 192, 0.1);
-  --ambient-line: rgba(246, 219, 192, 0.1);
+[data-m="1"][data-chat="list"] {
+  --chat-thread: none;
 }

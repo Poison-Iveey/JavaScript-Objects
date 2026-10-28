@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "./supabaseClient.js": ["setup/supabaseStub.js"],
+      "../services/supabaseClient.js": ["setup/supabaseStub.js"]
+    }
+  }
+}

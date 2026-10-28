@@ -6,3 +6,13 @@ dist/
 .DS_Store
 .vscode/*
 !.vscode/extensions.json
+
+# design-sync (Claude Design) — staged scripts, build output, machine state
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
+
+# Downloaded Claude Design export (reference only)
+Shelved Design System (1)/

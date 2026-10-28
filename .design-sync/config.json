@@ -1,0 +1,226 @@
+{
+  "projectId": "fb1c8b40-1d82-4dde-8a51-b911c05f0722",
+  "shape": "package",
+  "pkg": "shelved",
+  "globalName": "Shelved",
+  "tsconfig": ".design-sync/tsconfig.json",
+  "provider": {
+    "component": "ShelvedProvider",
+    "props": {
+      "animations": false
+    }
+  },
+  "docsMap": {
+    "ShelvedProvider": ".design-sync/docs/ShelvedProvider.md",
+    "Button": ".design-sync/docs/Button.md",
+    "ConfirmDialog": ".design-sync/docs/ConfirmDialog.md",
+    "FormField": ".design-sync/docs/FormField.md",
+    "Input": ".design-sync/docs/Input.md",
+    "GoogleIcon": ".design-sync/docs/GoogleIcon.md",
+    "IconButton": ".design-sync/docs/IconButton.md",
+    "Modal": ".design-sync/docs/Modal.md",
+    "ThemeToggle": ".design-sync/docs/ThemeToggle.md"
+  },
+  "componentSrcMap": {
+    "ShelvedProvider": ".design-sync/setup/index.jsx",
+    "Button": "src/components/ui/Button.jsx",
+    "ConfirmDialog": "src/components/ui/ConfirmDialog.jsx",
+    "FormField": "src/components/ui/FormField.jsx",
+    "Input": "src/components/ui/FormField.jsx",
+    "GoogleIcon": "src/components/ui/GoogleIcon.jsx",
+    "IconButton": "src/components/ui/IconButton.jsx",
+    "Modal": "src/components/ui/Modal.jsx",
+    "ThemeToggle": "src/components/ui/ThemeToggle.jsx",
+    "AddBookPanel": "src/components/books/AddBookPanel.jsx",
+    "AddBookSheet": "src/components/books/AddBookSheet.jsx",
+    "BookCard": "src/components/books/BookCard.jsx",
+    "BookDetailSheet": "src/components/books/BookDetailSheet.jsx",
+    "BookGrid": "src/components/books/BookGrid.jsx",
+    "BookListView": "src/components/books/BookListView.jsx",
+    "CategoryIndexList": "src/components/books/CategoryIndexList.jsx",
+    "FileAttachInput": "src/components/books/FileAttachInput.jsx",
+    "PublicBookCard": "src/components/books/PublicBookCard.jsx",
+    "RatingControl": "src/components/books/RatingControl.jsx",
+    "SearchBar": "src/components/books/SearchBar.jsx",
+    "StatusControl": "src/components/books/StatusControl.jsx",
+    "UploadDropzone": "src/components/books/UploadDropzone.jsx",
+    "AppBackgroundScene": "src/components/decor/AppBackgroundScene.jsx",
+    "FallingLeaves": "src/components/decor/FallingLeaves.jsx",
+    "ParkScene": "src/components/decor/ParkScene.jsx",
+    "AppHeader": "src/components/layout/AppHeader.jsx",
+    "AppShell": "src/components/layout/AppShell.jsx",
+    "BottomNav": "src/components/layout/BottomNav.jsx",
+    "NavDrawer": "src/components/layout/NavDrawer.jsx",
+    "Sidebar": "src/components/layout/Sidebar.jsx",
+    "ShareLinkPanel": "src/components/profile/ShareLinkPanel.jsx",
+    "ShareProfileModal": "src/components/profile/ShareProfileModal.jsx",
+    "TwitterIcon": "src/components/profile/SocialIcons.jsx",
+    "FacebookIcon": "src/components/profile/SocialIcons.jsx",
+    "InstagramIcon": "src/components/profile/SocialIcons.jsx",
+    "WhatsAppIcon": "src/components/profile/SocialIcons.jsx",
+    "TikTokIcon": "src/components/profile/SocialIcons.jsx",
+    "SubstackIcon": "src/components/profile/SocialIcons.jsx",
+    "AvatarUploader": "src/components/settings/AvatarUploader.jsx",
+    "ProfileForm": "src/components/settings/ProfileForm.jsx",
+    "SharingSettings": "src/components/settings/SharingSettings.jsx",
+    "AuthForm": "src/components/auth/AuthForm.jsx"
+  },
+  "dtsPropsFor": {
+    "ShelvedProvider": "children?: React.ReactNode; /** Initial color theme. The outermost provider sets data-theme on <html>; a nested provider scopes it to its own subtree (e.g. a dark island in a light page). */ theme?: 'light' | 'dark'; /** Signed-in reader. Defaults to SAMPLE_USER; pass null for signed-out. */ user?: { id: string; email: string; displayName: string; avatarUrl: string | null; shareSlug: string | null; isProfilePublic: boolean; profileVisibility: { showCurrentlyReading: boolean; showFavorites: boolean; showRatings: boolean } } | null; /** Shelf contents. Defaults to SAMPLE_BOOKS (8 books across all statuses). */ books?: Array<{ id: string; title: string; author: string; pages: number | null; status: 'want' | 'reading' | 'read'; rating: number | null; genre: string | null; notes: string; isFavorite: boolean; coverUrl: string | null; fileAttachment: { name: string; size: number; type: string } | null }>; /** Starting route for the in-memory router, e.g. '/library', '/reading', '/settings'. Ignored when nested inside another ShelvedProvider (the outer router is reused). */ initialPath?: string; /** false renders framer-motion elements (cards, modals, sheets) in their final state - for static mockups. Default true; nested providers inherit the outer setting. */ animations?: boolean;",
+    "Button": "variant?: 'primary' | 'secondary' | 'ghost' | 'danger'; className?: string; children?: React.ReactNode; type?: 'button' | 'submit' | 'reset'; disabled?: boolean; onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;",
+    "ConfirmDialog": "isOpen: boolean; onClose: () => void; onConfirm: () => void; title: string; message: React.ReactNode; confirmLabel?: string;",
+    "FormField": "label: string; /** Error text shown under the control. */ error?: string | null; /** id of the control inside; wires the <label htmlFor>. */ id: string; children: React.ReactNode;",
+    "Input": "id?: string; className?: string; type?: string; value?: string | number; defaultValue?: string | number; placeholder?: string; onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void; onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void; disabled?: boolean; required?: boolean;",
+    "GoogleIcon": "size?: number;",
+    "IconButton": "/** A lucide-react icon component, e.g. Heart. */ icon: React.ComponentType<{ size?: number; strokeWidth?: number; [k: string]: unknown }>; /** Accessible label (aria-label + title). */ label: string; variant?: 'default' | 'accent' | 'danger'; className?: string; /** Extra props forwarded to the icon, e.g. { fill: 'currentColor' }. */ iconProps?: Record<string, unknown>; onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void; disabled?: boolean;",
+    "Modal": "isOpen: boolean; onClose: () => void; title: string; children?: React.ReactNode;",
+    "ThemeToggle": "",
+    "AddBookPanel": "",
+    "AddBookSheet": "isOpen: boolean; onClose: () => void; initialCoverFile?: File | null;",
+    "BookCard": "book: { id: string; title: string; author: string; pages: number | null; status: 'want' | 'reading' | 'read'; rating: number | null; genre: string | null; notes: string; isFavorite: boolean; coverUrl: string | null; fileAttachment: { name: string; size: number; type: string } | null };",
+    "BookDetailSheet": "book: { id: string; title: string; author: string; pages: number | null; status: 'want' | 'reading' | 'read'; rating: number | null; genre: string | null; notes: string; isFavorite: boolean; coverUrl: string | null; fileAttachment: { name: string; size: number; type: string } | null }; isOpen: boolean; onClose: () => void;",
+    "BookGrid": "books: Array<{ id: string; title: string; author: string; pages: number | null; status: 'want' | 'reading' | 'read'; rating: number | null; genre: string | null; notes: string; isFavorite: boolean; coverUrl: string | null; fileAttachment: { name: string; size: number; type: string } | null }>; emptyMessage?: string;",
+    "BookListView": "title: string; subtitle?: string; books: Array<{ id: string; title: string; author: string; pages: number | null; status: 'want' | 'reading' | 'read'; rating: number | null; genre: string | null; notes: string; isFavorite: boolean; coverUrl: string | null; fileAttachment: { name: string; size: number; type: string } | null }>; /** Show the add-a-book dropzone + button above the search bar. */ showAddPanel?: boolean; emptyMessage?: string;",
+    "CategoryIndexList": "title: string; items: { name: string; count: number; to: string }[]; emptyMessage?: string;",
+    "FileAttachInput": "file: { name: string; size: number; type?: string } | null; onFileSelected: (file: File) => void; onClear: () => void;",
+    "PublicBookCard": "book: { id: string; title: string; author: string; pages: number | null; status: 'want' | 'reading' | 'read'; rating: number | null; genre: string | null; notes: string; isFavorite: boolean; coverUrl: string | null; fileAttachment: { name: string; size: number; type: string } | null };",
+    "RatingControl": "/** 1-5, or null for unrated. */ value: number | null; onChange: (rating: number) => void;",
+    "SearchBar": "value: string; onChange: (value: string) => void;",
+    "StatusControl": "value: 'want' | 'reading' | 'read'; onChange: (status: 'want' | 'reading' | 'read') => void;",
+    "UploadDropzone": "onFileAccepted: (file: File) => void; previewUrl?: string | null; shape?: 'square' | 'circle' | 'banner'; label?: string;",
+    "AppBackgroundScene": "",
+    "FallingLeaves": "count?: number; opacity?: number;",
+    "ParkScene": "leafCount?: number; /** 'auto' follows the theme tokens; 'dusk' forces the dark palette. */ variant?: 'auto' | 'dusk';",
+    "AppHeader": "title: string; subtitle?: string; /** Extra controls rendered at the end of the header row. */ children?: React.ReactNode;",
+    "AppShell": "children?: React.ReactNode;",
+    "BottomNav": "",
+    "NavDrawer": "isOpen: boolean; onClose: () => void;",
+    "Sidebar": "",
+    "ShareLinkPanel": "shareUrl: string; displayName: string;",
+    "ShareProfileModal": "isOpen: boolean; onClose: () => void;",
+    "TwitterIcon": "size?: number;",
+    "FacebookIcon": "size?: number;",
+    "InstagramIcon": "size?: number;",
+    "WhatsAppIcon": "size?: number;",
+    "TikTokIcon": "size?: number;",
+    "SubstackIcon": "size?: number;",
+    "AvatarUploader": "avatarUrl?: string | null; onFileAccepted: (file: File) => void;",
+    "ProfileForm": "",
+    "SharingSettings": "",
+    "AuthForm": "mode: 'login' | 'signup';"
+  },
+  "overrides": {
+    "Modal": {
+      "cardMode": "single",
+      "viewport": "420x760"
+    },
+    "ConfirmDialog": {
+      "cardMode": "single",
+      "viewport": "420x760"
+    },
+    "AddBookSheet": {
+      "cardMode": "single",
+      "viewport": "420x760"
+    },
+    "BookDetailSheet": {
+      "cardMode": "single",
+      "viewport": "420x760"
+    },
+    "NavDrawer": {
+      "cardMode": "single",
+      "viewport": "420x760"
+    },
+    "ShareProfileModal": {
+      "cardMode": "single",
+      "viewport": "420x760"
+    },
+    "AppShell": {
+      "cardMode": "single",
+      "viewport": "1100x720"
+    },
+    "BottomNav": {
+      "cardMode": "single",
+      "viewport": "390x240",
+      "primaryStory": "LibraryActive"
+    },
+    "BookListView": {
+      "cardMode": "column"
+    },
+    "BookGrid": {
+      "cardMode": "column"
+    },
+    "CategoryIndexList": {
+      "cardMode": "column"
+    },
+    "AppHeader": {
+      "cardMode": "column"
+    },
+    "Sidebar": {
+      "cardMode": "single",
+      "viewport": "960x720"
+    },
+    "AppBackgroundScene": {
+      "cardMode": "single",
+      "primaryStory": "Light",
+      "viewport": "900x560"
+    },
+    "ParkScene": {
+      "cardMode": "column"
+    },
+    "FallingLeaves": {
+      "cardMode": "column"
+    },
+    "FileAttachInput": {
+      "cardMode": "column"
+    },
+    "PublicBookCard": {
+      "cardMode": "column"
+    },
+    "RatingControl": {
+      "cardMode": "column"
+    },
+    "SearchBar": {
+      "cardMode": "column"
+    },
+    "StatusControl": {
+      "cardMode": "column"
+    },
+    "UploadDropzone": {
+      "cardMode": "column"
+    },
+    "ShareLinkPanel": {
+      "cardMode": "column"
+    },
+    "AvatarUploader": {
+      "cardMode": "column"
+    },
+    "ProfileForm": {
+      "cardMode": "column"
+    },
+    "SharingSettings": {
+      "cardMode": "column"
+    },
+    "ShelvedProvider": {
+      "cardMode": "column"
+    },
+    "WhatsAppIcon": {
+      "cardMode": "column"
+    },
+    "TwitterIcon": {
+      "cardMode": "column"
+    },
+    "TikTokIcon": {
+      "cardMode": "column"
+    },
+    "SubstackIcon": {
+      "cardMode": "column"
+    },
+    "InstagramIcon": {
+      "cardMode": "column"
+    },
+    "FacebookIcon": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}

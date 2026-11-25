@@ -14,9 +14,13 @@
   --side-bd: 1px solid #2c2449;
   --side-r: 0;
   --main-pad: 0 22px 26px;
-  --banner-m: 18px 0 0;
-  --banner-r: 18px;
-  --banner-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+  /* Header film: full-bleed (cancels --main-pad's sides), fading out at the
+     bottom; the page title is lifted onto that faded edge. */
+  --banner-m: 0 -22px;
+  --banner-mask: linear-gradient(180deg, #000 50%, transparent 97%);
+  --head-lift: -104px;
+  --head-halo: 0 1px 14px rgba(15, 11, 29, 0.85);
+  --cap-bottom: 44%;
   --banner-fade: linear-gradient(180deg, rgba(15, 11, 29, 0) 62%, rgba(15, 11, 29, 0.5));
   --card: #15102a;
   --line: #2b2346;
@@ -67,7 +71,7 @@
   --btn-ink: #1a1330;
   --scrim: rgba(6, 4, 14, 0.66);
   --drop: #1a1433;
-  --veil: linear-gradient(180deg, rgba(15, 11, 29, 0.05), rgba(15, 11, 29, 0.55));
+  --veil: linear-gradient(180deg, rgba(15, 11, 29, 0.05) 35%, rgba(15, 11, 29, 0.82));
   --auth-veil: rgba(15, 11, 29, 0.72);
   --auth-title: "Cinzel", serif;
   --barbg: rgba(15, 11, 29, 0.88);
@@ -89,10 +93,8 @@
   --side-bd: 1px solid #ebe4e1;
   --side-r: 0;
   --main-pad: 0 22px 26px;
-  --banner-m: 18px 0 0;
-  --banner-r: 18px;
-  --banner-shadow: 0 16px 38px rgba(90, 60, 50, 0.18);
-  --banner-fade: linear-gradient(180deg, rgba(42, 30, 40, 0) 65%, rgba(42, 30, 40, 0.28));
+  --head-halo: 0 0 12px rgba(255, 255, 255, 0.95);
+  --banner-fade: none;
   --card: #fff;
   --line: #ebe4e1;
   --ink: #2b2321;
@@ -142,7 +144,7 @@
   --btn-ink: #fff;
   --scrim: rgba(60, 40, 35, 0.38);
   --drop: #faf6f4;
-  --veil: none;
+  --veil: linear-gradient(180deg, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.94) 80%);
   --auth-veil: rgba(239, 233, 230, 0.8);
   --auth-title: "Libre Caslon Text", serif;
   --barbg: rgba(255, 255, 255, 0.92);
@@ -172,8 +174,10 @@
   --side-r: 0 16px 16px 0;
   --side-bd: none;
   --main-pad: 0 14px 96px;
-  --banner-m: 12px 0 0;
-  --banner-r: 14px;
+  --banner-m: 0 -14px;
+  --banner-mask: linear-gradient(180deg, #000 62%, transparent 100%);
+  --head-lift: 6px;
+  --cap-bottom: 38%;
   --h2-size: 21px;
   --desk-only: none;
   --mob-only: flex;

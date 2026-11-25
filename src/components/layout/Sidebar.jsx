@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import { Icon } from "../ui/Icon.jsx";
@@ -7,14 +8,24 @@ import { useLibrary } from "../../hooks/useLibrary.js";
 import { SidebarArt } from "./SidebarArt.jsx";
 import styles from "./Sidebar.module.css";
 
+const QUOTE_MS = 20_000;
+
 export function Sidebar({ navKey, unread }) {
   const { mobile, collapsed, toggleCollapsed, closeDrawer } = useShell();
   const { books } = useLibrary();
   const showLabels = mobile || !collapsed;
 
-  // A different saved quote each day.
+  // Saved quotes take turns, each shown for QUOTE_MS before the next one.
   const allQuotes = books.flatMap((b) => b.quotes.map((t) => ({ t, book: b.title })));
-  const sideQuote = allQuotes.length ? allQuotes[new Date().getDate() % allQuotes.length] : null;
+  const [quoteTurn, setQuoteTurn] = useState(0);
+  const quoteCount = allQuotes.length;
+  useEffect(() => {
+    if (quoteCount < 2) return;
+    const id = setInterval(() => setQuoteTurn((n) => n + 1), QUOTE_MS);
+    return () => clearInterval(id);
+  }, [quoteCount]);
+  const quoteIndex = quoteCount ? quoteTurn % quoteCount : 0;
+  const sideQuote = quoteCount ? allQuotes[quoteIndex] : null;
 
   const sideIcon = mobile ? "close" : collapsed ? "right" : "left";
   const sideTitle = mobile ? "Close menu" : collapsed ? "Expand menu" : "Collapse menu";
@@ -56,8 +67,11 @@ export function Sidebar({ navKey, unread }) {
           {sideQuote && (
             <div className={styles.quote}>
               <span className={styles.quoteLabel}>From your quotes</span>
-              <span className={styles.quoteText}>“{sideQuote.t}”</span>
-              <span className={styles.quoteBook}>{sideQuote.book}</span>
+              {/* Keyed by index so each new quote fades in. */}
+              <div key={quoteIndex} className={styles.quoteBody}>
+                <span className={styles.quoteText}>“{sideQuote.t}”</span>
+                <span className={styles.quoteBook}>{sideQuote.book}</span>
+              </div>
             </div>
           )}
         </div>

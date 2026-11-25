@@ -99,7 +99,10 @@
 .bottom {
   margin-top: auto;
   flex: 1 1 auto;
-  min-height: 0;
+  /* Never shorter than the quote card: when the menu leaves too little room,
+     the art collapses and the sidebar scrolls instead of the card spilling
+     upward over the nav. */
+  min-height: min-content;
   justify-content: flex-end;
   padding: 6px 0 0;
   width: 184px;
@@ -109,6 +112,7 @@
 }
 
 .quote {
+  flex: none;
   padding: 12px 12px 10px;
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -124,6 +128,26 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.quoteBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: quoteIn 0.6s ease both;
+}
+
+@keyframes quoteIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quoteBody {
+    animation: none;
+  }
 }
 
 .quoteText {

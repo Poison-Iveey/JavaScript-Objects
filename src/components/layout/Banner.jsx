@@ -3,7 +3,7 @@ import { useJournal } from "../../hooks/useJournal.js";
 
 const VIDEO = "/media/header.mp4";
 
-// The looping header film. A small blurred patch hides a corner mark in the
+// The looping header film (1920×576), full-bleed behind the page title. A small blurred patch hides a corner mark in the
 // footage; its colour is sampled from the frame continuously so it blends in.
 export function Banner() {
   const { settings } = useJournal();
@@ -43,13 +43,13 @@ export function Banner() {
   return (
     <div
       style={{
+        // Edge to edge with no frame; the lower part fades to transparent so
+        // the film melts into whatever the page background is.
         position: "relative",
         margin: "var(--banner-m)",
-        borderRadius: "var(--banner-r)",
         overflow: "hidden",
-        border: "1px solid var(--line)",
-        boxShadow: "var(--banner-shadow)",
-        background: "#1b1328",
+        WebkitMaskImage: "var(--banner-mask)",
+        maskImage: "var(--banner-mask)",
       }}
     >
       <video ref={videoRef} src={VIDEO} loop muted playsInline autoPlay style={{ display: "block", width: "100%", height: "auto" }} />
@@ -71,8 +71,8 @@ export function Banner() {
       <div
         style={{
           position: "absolute",
-          right: 16,
-          bottom: 14,
+          right: 22,
+          bottom: "var(--cap-bottom)",
           background: "var(--cap-bg)",
           color: "var(--cap-ink)",
           fontFamily: "var(--cap-font)",

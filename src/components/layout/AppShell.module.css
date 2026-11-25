@@ -91,18 +91,26 @@
   text-overflow: ellipsis;
 }
 
-/* Page header */
+/* Page header: the banner film runs edge to edge behind the top of the page,
+   and the page title sits over its faded lower edge. */
+.hero {
+  position: relative;
+}
+
 .pageHead {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 14px 20px;
-  margin-top: 26px;
+  margin-top: var(--head-lift);
 }
 
 .headText {
   flex: 1 1 300px;
   min-width: 0;
+  position: relative;
+  z-index: 1;
+  text-shadow: var(--head-halo);
 }
 
 .greeting {
@@ -149,10 +157,19 @@
   font-size: 11px;
 }
 
+/* Top-right of the film, like a site header floating over a hero image. */
 .headActions {
   display: var(--desk-only);
   align-items: center;
   gap: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  right: 0;
+  padding: 6px;
+  border-radius: 14px;
+  background: var(--barbg);
+  backdrop-filter: blur(10px);
 }
 
 .addButton {

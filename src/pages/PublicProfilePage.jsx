@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card, CardHeader } from "../components/ui/Card.jsx";
 import { Stars, ThemeButton } from "../components/ui/controls.jsx";
+import { BackButton } from "../components/layout/BackButton.jsx";
+import backStyles from "../components/layout/BackButton.module.css";
 import { MiniBook, tileStyles } from "../components/books/BookTile.jsx";
 import * as authService from "../services/authService.js";
 import * as booksService from "../services/booksService.js";
@@ -51,6 +53,8 @@ export function PublicProfilePage() {
     <div className={styles.page} style={{ alignItems: "flex-start" }}>
       <ThemeButton style={{ position: "absolute", top: 16, right: 16 }} />
       <div style={{ width: "100%", maxWidth: 920, display: "flex", flexDirection: "column", gap: 16 }}>
+        {/* Shown only when the visitor arrived from another page of the app. */}
+        <BackButton fallback={null} className={backStyles.publicBack} />
         <div className={styles.crescent} aria-hidden="true">
           <span />
           <span>☾</span>

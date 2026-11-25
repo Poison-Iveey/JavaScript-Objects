@@ -3,6 +3,7 @@ import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { Sidebar } from "./Sidebar.jsx";
 import { Banner } from "./Banner.jsx";
+import { BackButton } from "./BackButton.jsx";
 import { ShellProvider, useShell } from "./ShellContext.jsx";
 import { Icon } from "../ui/Icon.jsx";
 import { Avatar, Button, ThemeButton } from "../ui/controls.jsx";
@@ -66,10 +67,12 @@ function ShellFrame() {
               <ThemeButton size={44} />
             </div>
 
+            <div className={styles.hero}>
             <Banner />
 
             <div className={styles.pageHead}>
               <div className={styles.headText}>
+                <BackButton fallback={page.key === "dash" ? null : "/dashboard"} />
                 <div className={styles.greeting}>{greeting(user?.displayName)}</div>
                 <h2 className={styles.pageTitle}>{title}</h2>
                 <div className={styles.ornament} aria-hidden="true">
@@ -88,6 +91,7 @@ function ShellFrame() {
                   <Avatar src={user?.avatarUrl} name={user?.displayName} />
                 </button>
               </div>
+            </div>
             </div>
 
             <Outlet />

@@ -1,0 +1,52 @@
+# CI: lint, unit tests, production build and a dependency audit.
+# Runs on every push and pull request to the deployment branch (main) and the
+# working branch (2026Upgrade). See docs/DEVOPS_PLAN.md, pipeline #1.
+name: CI
+
+on:
+  push:
+    branches: [main, 2026Upgrade]
+  pull_request:
+    branches: [main, 2026Upgrade]
+  workflow_dispatch:
+
+# A newer push to the same branch or PR cancels the run still in progress.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Lint, test, build, audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # LFS is deliberately off: the build doesn't need the 19 MB header video
+      # (it copies the small pointer instead), and skipping it keeps CI from
+      # using the 1 GB/month GitHub LFS bandwidth. Deploy jobs must enable it.
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Audit dependencies (high and critical)
+        run: npm audit --audit-level=high

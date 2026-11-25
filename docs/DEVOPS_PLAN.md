@@ -1,6 +1,6 @@
 # DevOps plan — Literary Journey (Shelved)
 
-Status: **planned, not yet implemented.** Pick this up once the UI/UX and the full-stack work (moving device-only data into Supabase) are done, and before the first Play Store release.
+Status: **in progress.** Pipeline #1 (CI) is live in `.github/workflows/ci.yml`; everything else is planned. Pick the rest up once the UI/UX and the full-stack work (moving device-only data into Supabase) are done, and before the first Play Store release.
 
 Context: React + Vite web app, wrapped for Android with Capacitor, backed by Supabase (Postgres, Auth, Storage). Expected scale is about 50 users a year. Keep everything on free tiers, managed services and GitHub Actions. No servers of our own.
 
@@ -8,13 +8,14 @@ Context: React + Vite web app, wrapped for Android with Capacitor, backed by Sup
 
 ## Pipelines (GitHub Actions)
 
-### 1. CI: every pull request and every push to `main`
-- **Checkout:** `actions/checkout` with `lfs: true` (required, see "Header video" below).
-- **Steps:** `npm ci`, then ESLint, then unit tests (Vitest), then `vite build`.
-- **Smoke tests:** Playwright end-to-end checks of the main flows: sign in, add a book, edit details and rating, log pages, quotes, challenges.
-- **Security:** `npm audit --audit-level=high`.
-- **Database guard:** fail if any table in `supabase/migrations` is created without `enable row level security`.
-- **Branch rule:** protect `main`; merging requires this workflow to pass.
+### 1. CI: every pull request and push to `main` and `2026Upgrade` ✅ (`.github/workflows/ci.yml`)
+- **Branches:** `main` is the deployment branch; `2026Upgrade` is the working branch, merged into `main` by pull request when deploying.
+- **Checkout:** without LFS. The build doesn't need the header video, and skipping it saves LFS bandwidth. Deploy and release jobs (#3, #4) **must** use `lfs: true`.
+- **Steps:** `npm ci`, then ESLint (`npm run lint`), then unit tests (`npm test`, Vitest), then `vite build`. ✅
+- **Security:** `npm audit --audit-level=high`. ✅ Two moderate `react-router` advisories remain until the planned v7 upgrade.
+- **Smoke tests (to do):** Playwright end-to-end checks of the main flows: sign in, add a book, edit details and rating, log pages, quotes, challenges. Needs a dedicated test account in the dev Supabase project, stored as GitHub secrets.
+- **Database guard (to do):** fail if any table in `supabase/migrations` is created without `enable row level security`. Add it with pipeline #2, once migrations exist.
+- **Branch rule (to do, in GitHub settings):** protect `main` (pull request plus passing CI required, no force-push or deletion), and block force-push and deletion on `2026Upgrade`.
 
 ### 2. Database: migrations and RLS policy tests
 - **On PR:** start a local Supabase (`supabase start`, uses Docker), apply all migrations, then run policy tests. They sign in as user A and must not be able to read or write user B's rows or storage files.
